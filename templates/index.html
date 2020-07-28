@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Simpsons Clones</title>
+	<link rel="icon" type="image/png" href="{{url_for('static',filename = 'img/title.png')}}">
+	<link rel="apple-touch-icon" type="image/png" href="{{url_for('static',filename = 'img/title.png')}}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link rel="stylesheet" href="{{url_for('static',filename = 'style/style.css')}}">
+
+</head>
+
+<body>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-md bg-dark fixed-top">
+		<a class="navbar-brand mx-auto" href="#">
+			<h2><img src="{{url_for('static',filename = 'img/titlelogo.png')}}" alt=""> Simpsons Generator </h2>
+		</a>
+	</nav>
+
+	<!--- Image Slider -->
+	<div id="slides" class="carousel slide" data-ride="carousel">
+		<ul class="carousel-indicators">
+			<li data-target="#slides" data-slide-to="0" class="active"></li>
+			<li data-target="#slides" data-slide-to="1"></li>
+			<li data-target="#slides" data-slide-to="2"></li>
+		</ul>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="{{url_for('static',filename = 'img/Back1.jpg')}}">
+				<div class="carousel-caption">
+					<h1 class="display-2">Simpsons Faces Generator</h1>
+					<h3>DCGAN based model for generating fake simpsons</h3>
+					<a href="#predict"><button type="button" class="btn btn-primary btn-lg">
+							Get Started
+						</button></a>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="{{url_for('static',filename = 'img/Back2.jpg')}}">
+				<div class="carousel-caption blackcolor">
+					<h1 class="display-2">Simpsons Faces Generator</h1>
+					<h3>DCGAN based model for generating fake simpsons</h3>
+					<a href="#predict"><button type="button" class="btn btn-primary btn-lg">
+							Get Started
+						</button></a>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="{{url_for('static',filename = 'img/Back3.jpg')}}">
+				<div class="carousel-caption blackcolor">
+					<h1 class="display-2">Simpsons Faces Generator</h1>
+					<h3>DCGAN based model for generating fake simpsons</h3>
+					<a href="#predict"><button type="button" class="btn btn-primary btn-lg">
+							Get Started
+						</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--- Jumbotron -->
+	<div class="container-fluid">
+		<div class="row jumbotron">
+			<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10"><br>
+				<p class="lead">A web application service that integrates an AI/ML model which allows you to generate new faces based on the most popular animated series, The Simpsons.</p>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
+				<a href="#predict"><button type="button" class="btn btn-primary btn-lg">Try Here</button></a>
+			</div>
+
+		</div>
+	</div>
+
+
+	<figure>
+		<div class="fixed-wrap">
+			<div id="fixedone">
+			</div>
+		</div>
+	</figure>
+	<br><br>
+
+
+	<!--Prediction Area-->
+	<div id="predict">
+		<div class="container-fluid padding">
+			<div class="row text-center">
+				<div class="col-12">
+					<br><br><br><br>
+					<h2>Generate New Simpsons Here</h2><br>
+					<p>Just click on the generate button and see the power of computer intelligence in front of your eyes. </p>
+					<form class="form-inline" method="POST" action="#predict" enctype="multipart/form-data">
+							<br><br>
+						<div class="col-12">
+							<button type="submit" class="btn btn-lg btn-primary">Generate</button>
+						</div>
+					</form>
+					{%if path_to_img%}
+					<br>
+					<p>Please don't judge this model as it sometimes predicts odd results. Please hit generate button once again if not satisfied ..</p>
+					<img src="{{path_to_img}}" class="predictimg">
+					<br><br>
+					{%endif%}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- GIF Section-->
+	<div class="container-fluid padding">
+		<div class="row text-center">
+			<div class="col">
+				<img class="gif" src="{{url_for('static',filename = 'img/gif/gif1.gif')}}">
+			</div>
+			<div class="col">
+				<img class="gif" src="{{url_for('static',filename = 'img/gif/gif2.gif')}}">
+			</div>
+			<div class="col">
+				<img class="gif" src="{{url_for('static',filename = 'img/gif/gif3.gif')}}">
+			</div>
+		</div>
+	</div>
+
+	<br>
+	<br>
+
+	<!--- Jumbotron -->
+	<div class="container-fluid">
+		<div class="row jumbotron">
+			<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+				<h2>How is all this made possible ..</h2>
+				<p class="lead"> GAN is the name of this bad bitch, which makes it all possible. GAN models have opened a completely new perspective of machine learning. These models are capable to GENERATING new real-looking data based on their learnings.
+				</p>
+				<p class="lead">Before these models, generation of data was in its weak phase. After their discovery, they craved a new path in data generation. These are totally awesome, please have a look at their research paper. Admiring Ian Goodfellow..</p>
+			</div>
+			<div class=" col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
+				<a href="https://arxiv.org/abs/1406.2661"
+					target="_blank"><button type="button" class="btn btn-primary btn-lg">See Paper</button></a>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Background img -->
+	<figure>
+		<div class="fixed-wrap">
+			<div id="fixedtwo">
+			</div>
+		</div>
+	</figure>
+	<br><br>
+	
+	<!--- Welcome Section -->
+	
+	<div class="container-fluid padding">
+		<div class="row welcome text-center">
+			<div class="col-12">
+				<h1 class="display-4">Built with Machine Espionage.</h1>
+			</div>
+			<hr>
+			<div class="col-12 welcme">
+				<p class="lead">Implementing the DCGAN models with the help of deep learning frameworks like keras and
+					tensorflow.</p>
+			</div>
+		</div>
+	</div>
+
+	<!--- Three Column Section -->
+	<div class="container-fluid padding">
+		<div class="row text-center padding">
+
+			<div class="col-sm-12 col-md-4">
+				<img src="{{url_for('static',filename='img/tf.png')}}" class="logo">
+				<h3>TENSORFLOW</h3>
+				<p>Built with the latest version of Tensorflow, Tensorflow 2.0</p>
+			</div>
+			
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<i class="fas fa-code"></i>
+				<h3>HTML5</h3>
+				<p>Built with the latest version of HTML, HTML 5.</p>
+			</div>
+			
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<i class="fas fa-bold"></i>
+				<h3>BOOTSTRAP</h3>
+				<p>Built with the latest version of Bootstrap, Bootstrap 4.</p>
+			</div>
+			
+		</div>
+	</div>
+	<hr class="my-4">
+
+	<!--- Two Column Section -->
+	<div class="container-fluid padding altblack">
+		<div class="row padding">
+			<div class="col-md-12 col-lg-6 squized"><br>
+				<h3>If you build it ....</h3><br>
+				<h4>About The Model</h4>
+				<p>The model is an instance of Deep Convolutional Generative Adversial Networks(DCGAN's). These models have the power to push the standards of machine learning on a completely different level.</p>
+				<p>It consists of two models(Generator & Discrimintor) which work together to provide the proper functionality. For more details, please click learn more. </p>
+				<h4>About The Dataset</h4>
+				<p>Simpson's Faces Dataset</p>
+				<a href="https://www.kaggle.com/kostastokis/simpsons-faces" target="_blank">
+					<p>https://www.kaggle.com/kostastokis/simpsons-faces
+				</a>
+				<h4>About The Website</h4>
+				<p>It is a fully responsive site. It is crafted for hadling all the devices on which it runs.</p>
+				<a href="https://github.com/adityagupta24" target="_blank"><button type="button"
+						class="btn btn-primary btn-md">Learn More</button></a>
+			</div>
+			<div class="col-lg-6">
+				<img src="{{url_for('static',filename = 'img/desk.png')}}" class="img-fluid">
+			</div>
+		</div>
+	</div>
+	<hr class="my-4">
+
+	<!--- Connect -->
+	<div class="container-fluid padding">
+		<div class="row text-center padding">
+			<div class="col-12">
+				<h2>Connect</h2>
+			</div>
+			<div class="col-12 social padding">
+				<a href="https://github.com/adityagupta24" target="_blank"><i class="fab fa-github"></i></a>
+				<a href="https://linkedin.com/in/aditya-gupta-283646198" target="_blank"><i
+						class="fab fa-linkedin"></i></a>
+				<a href="https://www.youtube.com/channel/UC68Sfpz1wYEW9C-oqIl1Gdg" target="_blank"><i
+						class="fab fa-youtube"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<!--- Footer -->
+	<footer>
+		<div class="container-fluid padding">
+			<div class="row text-center">
+				<div class="col-md-12">
+					<hr class="light">
+					<p> Aditya Gupta </p>
+					<p> a BE COE senior from Netaji Subash University of Technology (NSUT) </p>
+					<p> Delhi, India </p><br>
+					<p> For any queries, please reach me at </p>
+					<p> addygarg123@gmail.com </p>
+
+				</div>
+
+				<div class="col-12">
+					<hr class="light">
+					<h5>&copy; Aditya Gupta</h5>
+				</div>
+
+			</div>
+		</div>
+
+	</footer>
+</body>
+
+</html>
